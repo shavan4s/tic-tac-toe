@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './App.css'
 function Square({ value, onSquareClick }) {
@@ -59,6 +61,7 @@ export default function Game() {
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
@@ -84,10 +87,15 @@ export default function Game() {
     );
   });
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
-    <div className="game">
+    <div className={`game ${isDarkMode ? 'darkMode' : ''}`}>
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        <button className="light-button" onClick={toggleDarkMode} ><FontAwesomeIcon icon={isDarkMode ? faSun : faMoon } /></button>
       </div>
       <div className="game-info">
         <ol>{moves}</ol>
