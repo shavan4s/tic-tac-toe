@@ -1,8 +1,8 @@
 #root {
-  margin: 0 auto;
-  text-align: center;
-  height: 100vh;
   display: flex;
+  height: 100vh;
+  margin: 0 auto;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }

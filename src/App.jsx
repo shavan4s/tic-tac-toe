@@ -1,27 +1,33 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from "react";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import './App.css'
+import "./App.css";
 function Square({ value, onSquareClick }) {
-
   return (
-<button className={`square ${value === 'X' || value === 'O' ? 'activeSquare' : ''}`} onClick={onSquareClick}>      {value}
+    <button
+      className={`square ${
+        value === "X" || value === "O" ? "activeSquare" : ""
+      }`}
+      onClick={onSquareClick}
+    >
+      {" "}
+      {value}
     </button>
   );
 }
 
 function Board({ xIsNext, squares, onPlay }) {
   function handleClick(i) {
-    if (calculateWinner(squares) ||  squares[i] !== 's') {
+    if (calculateWinner(squares) || squares[i] !== "s") {
       return;
     }
     const nextSquares = squares.slice();
     if (xIsNext) {
-      nextSquares[i] = 'X';
+      nextSquares[i] = "X";
     } else {
-      nextSquares[i] = 'O';
+      nextSquares[i] = "O";
     }
     onPlay(nextSquares);
   }
@@ -29,9 +35,9 @@ function Board({ xIsNext, squares, onPlay }) {
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
-    status = 'Winner: ' + winner;
+    status = "Winner: " + winner;
   } else {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+    status = "Next player: " + (xIsNext ? "X" : "O");
   }
 
   return (
@@ -57,7 +63,7 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const [history, setHistory] = useState([Array(9).fill('s')]);
+  const [history, setHistory] = useState([Array(9).fill("s")]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
@@ -76,13 +82,20 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = 'Go to move #' + move;
+      description = "Move #" + move;
     } else {
-      description = 'Go to game start';
+      description = "Game start";
     }
     return (
       <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+        <button
+          className={`move-button ${
+            move === currentMove ? "current-move" : ""
+          }`}
+          onClick={() => jumpTo(move)}
+        >
+          {description}
+        </button>
       </li>
     );
   });
@@ -92,10 +105,12 @@ export default function Game() {
   };
 
   return (
-    <div className={`game ${isDarkMode ? 'darkMode' : ''}`}>
+    <div className={`game ${isDarkMode ? "darkMode" : ""}`}>
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-        <button className="light-button" onClick={toggleDarkMode} ><FontAwesomeIcon icon={isDarkMode ? faSun : faMoon } /></button>
+        <button className="light-button" onClick={toggleDarkMode}>
+          <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
+        </button>
       </div>
       <div className="game-info">
         <ol>{moves}</ol>
@@ -117,7 +132,11 @@ function calculateWinner(squares) {
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
-    if ( squares[a] === squares[b] && squares[a] === squares[c] && squares[a] != 's') {
+    if (
+      squares[a] === squares[b] &&
+      squares[a] === squares[c] &&
+      squares[a] != "s"
+    ) {
       return squares[a];
     }
   }
