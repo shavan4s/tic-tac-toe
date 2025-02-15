@@ -1,4 +1,5 @@
 #root {
+<<<<<<< HEAD
   display: flex;
   height: 100vh;
   margin: 0 auto;
@@ -6,3 +7,12 @@
   justify-content: center;
   text-align: center;
 }
+=======
+  margin: 0 auto;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+>>>>>>> origin/master

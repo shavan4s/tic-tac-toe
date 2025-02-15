@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Base Layout */
 .game {
   display: flex;
@@ -128,4 +129,94 @@ li {
 
 .darkMode .move-button.current-move {
   background-color: #45a049;
+=======
+.game {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.square {
+  min-height: 10rem;
+  min-width: 10rem;
+  color: transparent;
+  background-color: #f5f5f5;
+}
+
+.game-board {
+  flex-grow: 80;
+	align-self: stretch;
+  background-color: #ffffff;
+}
+
+.game-info{
+  flex-grow: 20;
+	align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.activeSquare {
+  color: black;
+  background-color: #f5f5f5;
+  transition: background-color 0.2s ease-in-out;
+  background-color: #808080;
+}
+
+.status{
+  margin-bottom: 6%;
+  font-size: xxx-large;
+  padding-top: 4%;
+>>>>>>> origin/master
+}
+
+button {
+  font-size: xx-large;
+}
+
+li {
+  padding-top: 3.33%;
+  padding-bottom: 3.33%;
+  background-color: #f5f5f5;
+}
+
+darkMode {
+  background-color: #333333;
+  color: #ffffff;
+}
+.darkMode .square {
+  background-color: #808080;
+}
+
+.darkMode .game-board {
+  background-color: #404040;
+}
+
+.darkMode .game-info {
+  background-color: #333333;
+}
+
+.darkMode .status {
+  color: #ffffff;
+}
+
+.darkMode button {
+  background-color: #404040;
+}
+
+.darkMode .activeSquare{
+  color: #ffffff;
+}
+
+.darkMode li {
+  background-color: #333333;
+}
+
+.light-button{
+  border-radius: 50%;
+  float: left;
 }
