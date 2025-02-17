@@ -129,3 +129,50 @@ li {
 .darkMode .move-button.current-move {
   background-color: #45a049;
 }
+
+button {
+  font-size: xx-large;
+}
+
+li {
+  padding-top: 3.33%;
+  padding-bottom: 3.33%;
+  background-color: #f5f5f5;
+}
+
+darkMode {
+  background-color: #333333;
+  color: #ffffff;
+}
+.darkMode .square {
+  background-color: #808080;
+}
+
+.darkMode .game-board {
+  background-color: #404040;
+}
+
+.darkMode .game-info {
+  background-color: #333333;
+}
+
+.darkMode .status {
+  color: #ffffff;
+}
+
+.darkMode button {
+  background-color: #404040;
+}
+
+.darkMode .activeSquare {
+  color: #ffffff;
+}
+
+.darkMode li {
+  background-color: #333333;
+}
+
+.light-button {
+  border-radius: 50%;
+  float: left;
+}
