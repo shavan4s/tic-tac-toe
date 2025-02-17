@@ -1,11 +1,21 @@
 /* eslint-disable react/prop-types */
+<<<<<<< HEAD
 import { useState } from "react";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./App.css";
+=======
+import { useState } from 'react';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import './App.css'
+>>>>>>> origin/master
 function Square({ value, onSquareClick }) {
+
   return (
+<<<<<<< HEAD
     <button
       className={`square ${
         value === "X" || value === "O" ? "activeSquare" : ""
@@ -14,13 +24,20 @@ function Square({ value, onSquareClick }) {
     >
       {" "}
       {value}
+=======
+<button className={`square ${value === 'X' || value === 'O' ? 'activeSquare' : ''}`} onClick={onSquareClick}>      {value}
+>>>>>>> origin/master
     </button>
   );
 }
 
 function Board({ xIsNext, squares, onPlay }) {
   function handleClick(i) {
+<<<<<<< HEAD
     if (calculateWinner(squares) || squares[i] !== "s") {
+=======
+    if (calculateWinner(squares) ||  squares[i] !== 's') {
+>>>>>>> origin/master
       return;
     }
     const nextSquares = squares.slice();
@@ -63,7 +80,11 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 export default function Game() {
+<<<<<<< HEAD
   const [history, setHistory] = useState([Array(9).fill("s")]);
+=======
+  const [history, setHistory] = useState([Array(9).fill('s')]);
+>>>>>>> origin/master
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
@@ -105,12 +126,19 @@ export default function Game() {
   };
 
   return (
+<<<<<<< HEAD
     <div className={`game ${isDarkMode ? "darkMode" : ""}`}>
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
         <button className="light-button" onClick={toggleDarkMode}>
           <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
         </button>
+=======
+    <div className={`game ${isDarkMode ? 'darkMode' : ''}`}>
+      <div className="game-board">
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        <button className="light-button" onClick={toggleDarkMode} ><FontAwesomeIcon icon={isDarkMode ? faSun : faMoon } /></button>
+>>>>>>> origin/master
       </div>
       <div className="game-info">
         <ol>{moves}</ol>
@@ -132,11 +160,15 @@ function calculateWinner(squares) {
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
+<<<<<<< HEAD
     if (
       squares[a] === squares[b] &&
       squares[a] === squares[c] &&
       squares[a] != "s"
     ) {
+=======
+    if ( squares[a] === squares[b] && squares[a] === squares[c] && squares[a] != 's') {
+>>>>>>> origin/master
       return squares[a];
     }
   }
